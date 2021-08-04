@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isLoggedIn ? (
+        <div className="login">
+          <div className="input">
+            <input type="text" placeholder="Name..." />
+            <input type="text" placeholder="Room..." />
+          </div>
+          <button>Enter Chat</button>
+        </div>
+      ) : (
+        <h1>Your are Logged In</h1>
+      )}
     </div>
   );
 }
